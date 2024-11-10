@@ -41,7 +41,7 @@ class UsuariosController extends Controller
                 return response()->json('Usuário não encontrado!', 404);
             }
 
-            return response()->json([$usuario->id, $usuario->vc_nome], 200);
+            return response()->json(['id' => $usuario->id, 'nome' =>$usuario->vc_nome], 200);
         } catch (Exception $e) {
             return response()->json('Falha ao realizar login!', 500);
         }
