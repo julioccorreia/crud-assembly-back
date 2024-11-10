@@ -90,6 +90,10 @@ class JogosController extends Controller
         try {
             $jogo = Jogos::buscarJogoPorId($idJogo);
 
+            if (!$jogo) {
+                return response()->json('Jogo não encontrado!', 404);
+            }
+
             return response()->json($jogo, 200);
         } catch (Exception $e) {
             return response()->json('Falha ao buscar jogo!', 500);
