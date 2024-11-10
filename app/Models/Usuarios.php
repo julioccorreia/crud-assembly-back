@@ -32,4 +32,9 @@ class Usuarios extends Model
     {
         return self::where($dados)->first();
     }
+
+    public static function encontrarUsuarioPorEmail(string $email): ?object
+    {
+        return self::where('vc_email', $email)->first();
+    }
 }

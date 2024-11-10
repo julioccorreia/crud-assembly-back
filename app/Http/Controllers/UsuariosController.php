@@ -17,6 +17,10 @@ class UsuariosController extends Controller
             if (!$this->validarDados($dados, ['vc_nome', 'vc_email', 'vc_senha'])) {
                 return response()->json('Dados inválidos!', 400);
             }
+            
+            if (Usuarios::encontrarUsuarioPorEmail($dados['vc_email'])) {
+                return response()->json('Email já cadastrado!', 409);
+            }
 
             $usuario = Usuarios::cadastrarUsuario($dados);
 
