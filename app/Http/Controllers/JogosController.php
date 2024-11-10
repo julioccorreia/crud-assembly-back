@@ -50,13 +50,12 @@ class JogosController extends Controller
         }
     }
 
-    public function excluir(Request $request, int $idJogo): JsonResponse
+    public function excluir(int $idJogo): JsonResponse
     {
         try {
-            $dados = $request->only('vc_nome', 'fk_usuario');
             $dados['id'] = $idJogo;
 
-            if (!$this->validarDados($dados, ['id', 'vc_nome', 'fk_usuario'])) {
+            if (!$this->validarDados($dados, ['id'])) {
                 return response()->json('Dados inválidos!', 400);
             }
 
