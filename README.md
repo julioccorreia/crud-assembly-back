@@ -1,64 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Projeto Backend - CRUD com Sistema de Login (Laravel)
+Este é o projeto backend desenvolvido em Laravel, que contém um CRUD com sistema de login. A seguir, estão as instruções para rodar o projeto localmente.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Requisitos
+PHP (versão 7.4.33)  
+Composer (versão 2.7.7)  
+Laravel (versão 8.83.27)
+## Instalação
+### 1. Clonar o repositório
+Clone o repositório do projeto para sua máquina local:
+```
+    git clone <URL_DO_REPOSITORIO>
+    cd <NOME_DO_PROJETO>
+```
+### 2. Instalar as dependências
+Para instalar as dependências do Laravel, utilize o Composer. Caso não tenha o Composer instalado, faça o download e instalação aqui.
 
-## About Laravel
+Execute o comando abaixo para instalar as dependências:
+```
+    composer install
+```
+Isso irá baixar todas as dependências do projeto listadas no arquivo composer.json.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 3. Configurar o arquivo .env
+O Laravel usa o arquivo .env para gerenciar as configurações de ambiente. Você precisa configurar as variáveis de ambiente, como banco de dados, e-mail, e outras configurações específicas.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Copie o arquivo .env.example para .env:
+```
+    cp .env.example .env
+```
+Abra o arquivo .env e configure as variáveis de ambiente, como a conexão com o banco de dados. Por exemplo:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=<NOME_DO_BANCO>
+DB_USERNAME=<USUARIO_BANCO>
+DB_PASSWORD=<SENHA_BANCO>
+```
+### 4. Gerar a chave do aplicativo
+Para gerar a chave do aplicativo, que é usada para a criptografia, execute o comando:
+```
+php artisan key:generate
+```
+### 5. Rodar as migrações do banco de dados
+O Laravel utiliza migrações para criar a estrutura do banco de dados. Execute as migrações com o seguinte comando:
+```
+    php artisan migrate
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Este comando criará as tabelas necessárias no banco de dados, incluindo as tabelas para o sistema de autenticação, caso estejam configuradas.
 
-## Learning Laravel
+### 6. Rodar o servidor de desenvolvimento
+Para rodar o servidor de desenvolvimento integrado do Laravel, execute o seguinte comando:
+```
+    php artisan serve
+```
+Isso iniciará o servidor na URL http://localhost:8000. Você pode acessar a API do backend através desse endereço.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Nota: O servidor de desenvolvimento do Laravel não deve ser usado em ambientes de produção. Para produção, use servidores web como Apache ou Nginx.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Funcionalidades
+Sistema de Login: Autenticação de usuários via API.  
+CRUD: Funcionalidades para criar, ler, atualizar e excluir registros.
+## Tecnologias Utilizadas
+Laravel 8.83.27  
+PHP 7.4.33  
+Composer 2.7.7  
+MySQL ou MariaDB (conforme configurado no .env)
