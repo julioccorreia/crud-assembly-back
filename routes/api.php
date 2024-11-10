@@ -31,4 +31,6 @@ Route::prefix('/jogos')->group(function (){
     Route::get('/listar/{idUsuario}', [JogosController::class, 'listar']);
     Route::put('/editar/{idJogo}', [JogosController::class, 'editar']);
     Route::delete('/excluir/{idJogo}', [JogosController::class, 'excluir']);
+
+    Route::get('/listar/jogo/{idJogo}', [JogosController::class, 'buscarJogoPorId']);
 });

@@ -29,4 +29,9 @@ class Jogos extends Model
     {
         return self::where('fk_usuario', $idUsuario)->get();
     }
+
+    public static function buscarJogoPorId(int $idJogo): object
+    {
+        return self::where('id', $idJogo)->first();
+    }
 }

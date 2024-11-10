@@ -85,6 +85,17 @@ class JogosController extends Controller
         }
     }
 
+    public function buscarJogoPorId(int $idJogo): JsonResponse
+    {
+        try {
+            $jogo = Jogos::buscarJogoPorId($idJogo);
+
+            return response()->json($jogo, 200);
+        } catch (Exception $e) {
+            return response()->json('Falha ao buscar jogo!', 500);
+        }
+    }
+    
     public function validarDados(array $dados, array $camposObrigatorios): bool
     {
         foreach ($camposObrigatorios as $campo) {
