@@ -21,7 +21,10 @@ Execute o comando abaixo para instalar as dependências:
 ```
 Isso irá baixar todas as dependências do projeto listadas no arquivo composer.json.
 
-### 3. Configurar o arquivo .env
+### 3. Configurar banco de dados
+Foi disponibilizado o arquivo crud-jogos.sql que possui o script para criação do banco de dados utilizado no projeto.
+
+### 4. Configurar o arquivo .env
 O Laravel usa o arquivo .env para gerenciar as configurações de ambiente. Você precisa configurar as variáveis de ambiente, como banco de dados, e-mail, e outras configurações específicas.
 
 Copie o arquivo .env.example para .env:
@@ -37,12 +40,12 @@ DB_DATABASE=<NOME_DO_BANCO>
 DB_USERNAME=<USUARIO_BANCO>
 DB_PASSWORD=<SENHA_BANCO>
 ```
-### 4. Gerar a chave do aplicativo
+### 5. Gerar a chave do aplicativo
 Para gerar a chave do aplicativo, que é usada para a criptografia, execute o comando:
 ```
 php artisan key:generate
 ```
-### 5. Rodar as migrações do banco de dados
+### 6. Rodar as migrações do banco de dados
 O Laravel utiliza migrações para criar a estrutura do banco de dados. Execute as migrações com o seguinte comando:
 ```
     php artisan migrate
@@ -50,7 +53,7 @@ O Laravel utiliza migrações para criar a estrutura do banco de dados. Execute 
 
 Este comando criará as tabelas necessárias no banco de dados, incluindo as tabelas para o sistema de autenticação, caso estejam configuradas.
 
-### 6. Rodar o servidor de desenvolvimento
+### 7. Rodar o servidor de desenvolvimento
 Para rodar o servidor de desenvolvimento integrado do Laravel, execute o seguinte comando:
 ```
     php artisan serve
